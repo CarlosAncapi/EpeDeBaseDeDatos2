@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crear nueva carrera</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar bg-body-tertiary">
+	  <form class="container-fluid justify-content-start">
+	    <a th:href="@{/listarAlumnos}" class="btn btn-outline-success me-2" type="button">Mostrar Alumnos</a>
+	    <a th:href="@{/listarCarreras}"class="btn btn-outline-success me-2" type="button">Mostrar Carreras</a>
+	    <a th:href="@{/nuevaCarrera}"class="btn btn-outline-success me-2" type="button">Agregar nueva Carrera</a>
+	  </form>
+	</nav>
+	<div class="container mt-4">
+		<div class="col-sm-6">
+			<form th:action="@{/guardarCarrera}" th:object=${carrera} method="POST">
+				<div class="card">
+					<div class="card-header">
+						<h3>Modulo carrera</h3>
+					</div>
+					<div class="card-body">
+						<div class="form-group">
+							<label>Id Carrera</label>
+							<input th:field="*{cod_car}" type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label>Nombre Carrera</label>
+							<input th:field="*{nom_car}" type="text" class="form-control">
+						</div>
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Guardar" class="btn btn-success">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
